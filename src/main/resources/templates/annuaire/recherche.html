@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Rechercher une entree </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div>
+		<div class="leftBlock">
+			Recherche :
+			<form action="#" th:action="@{/annuaire/recherche}" method="get">
+				<p>
+					Nom: <input type="text" name="name" />
+				<p>
+					<input type="submit" value="Submit" />
+				</p>
+			</form>
+
+		</div>
+		<div>
+			<div style="text-align: center"><b>Resultat </b>
+			</div>
+			<br>
+			<div class="divTable">     <!--definition du tableau-->
+
+				<div class="headRow">
+					<div class="headCell">Id</div>
+					<div class="headCell">Nom</div>
+					<div class="headCell">Prenom</div>
+					<div class="headCell">Telephone</div>
+					<div class="headCell">Ville</div>
+					<div class="headCell">Modifier</div>
+					<div class="headCell">Supprimer</div>
+				</div>
+
+
+
+				<th:block th:if="${entries.empty}">
+					<td colspan="2">Pas d'entree disponible</td>
+				</th:block>
+				<th:block th:each="entry: ${entries}">
+					<div class="divRow">
+						<div class="divCell" data-title="Id">
+							<span th:text="${entry.getId()}"> Id </span>
+						</div>
+						<div class="divCell" data-title="Name">
+							<span th:text="${entry.getName()}"> Nom </span>
+						</div>
+						<div class="divCell" data-title="Surnam">
+							<span th:text="${entry.getSurname()}"> Prenom </span>
+						</div>
+						<div class="divCell" data-title="Phone">
+							<span th:text="${entry.getPhone()}"> Telephone </span>
+						</div>
+						<div class="divCell" data-title="City">
+							<span th:text="${entry.getCity()}"> Ville </span>
+						</div>
+						<div class ="divCell" data-tittle = "Modifier">
+							<a th:href="@{|/annuaire/modifier/${entry.getId()}|}">Modifier</a>
+						</div>	
+						<div class ="divCell" data-tittle = "Suprimer">
+							<a th:href="@{|/annuaire/supprimer/${entry.getId()}|}">Supprimer</a>
+						</div>
+					</div>
+				</th:block>
+
+			</div>
+		</div>
+	</div>
+
+<a href="/annuaire/ajouter">Ajouter une entrée</a>
+
+</body>
+</html>

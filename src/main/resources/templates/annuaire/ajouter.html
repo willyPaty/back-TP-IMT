@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Ajouter une entree</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+<div class="fixed">
+	<h4 >Ajouter</h4>
+	<fieldset>
+		<form action="/annuaire/ajouter" method="post">
+		 
+		 <div>
+			<br><label for="name">Nom : </label>
+			<input type="text" id="name"name="name" size="20" />
+			</div><br> 
+			<div>
+			<label for="surname">Prenom : </label>
+			<input type="text"id="surname" name="surname" size="20" />
+			</div><br> 
+			<div>
+			<label for="phone">Telephone : <input type="text"id="phone" name="phone" size="20" /></label>
+			</div><br>
+			<div>
+			 <label for="city">Ville : </label>
+			 <input type="text"id="city" name="city" size="20" />
+			</div><br>
+			
+			<br> <input type="submit" value="Submit" />
+		 
+		</form>
+	</fieldset>
+</div>
+</body>
+</html>
